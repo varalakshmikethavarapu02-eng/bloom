@@ -1,0 +1,24 @@
+### A YouTube creator curated by the Bloom team.
+class: Channel
+table: channel
+
+fields:
+  ### YouTube's own channel ID (starts with UC...).
+  youtubeChannelId: String
+  ### The channel handle, for example @rajshamani.
+  handle: String?
+  name: String
+  ### Bloom topics, for example [Science, Coding].
+  topics: List<String>
+  language: String?
+  ### Who in the team added this creator.
+  addedBy: String?
+  ### YouTube playlist that lists the channel's uploads.
+  uploadsPlaylistId: String?
+  isActive: bool
+  lastFetchedAt: DateTime?
+
+indexes:
+  channel_youtube_id_idx:
+    fields: youtubeChannelId
+    unique: true

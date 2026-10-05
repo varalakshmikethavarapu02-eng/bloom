@@ -1,0 +1,26 @@
+### A YouTube video discovered from a curated channel.
+class: Video
+table: video
+
+fields:
+  ### YouTube's own video ID.
+  youtubeVideoId: String
+  ### The id of the Channel row this video belongs to.
+  channelId: int
+  title: String
+  thumbnailUrl: String?
+  durationSeconds: int
+  publishedAt: DateTime
+  ### Topics inherited from the channel.
+  topics: List<String>
+  ### Estimated from duration (Shorts detection needs verification).
+  isShort: bool
+  isEmbeddable: bool
+  fetchedAt: DateTime
+
+indexes:
+  video_youtube_id_idx:
+    fields: youtubeVideoId
+    unique: true
+  video_channel_idx:
+    fields: channelId
